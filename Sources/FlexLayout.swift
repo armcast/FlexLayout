@@ -199,9 +199,28 @@ public final class Flex {
     }
     
     /**
+     The `pin` property sets top, left, right, bottom.
+     */
+    @discardableResult
+    public func pin(_ inset: CGFloat = 0.0) -> Flex {
+        yoga.top = YGValue(inset)
+        yoga.bottom = YGValue(inset)
+        yoga.left = YGValue(inset)
+        yoga.right = YGValue(inset)
+        return self
+    }
+    
+    @discardableResult
+    public func pin(_ percent: FPercent = 0%) -> Flex {
+        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        return self
+    }
+    
+    /**
      The `fill` property sets height and width to 100%.
-     
-     - Parameter value: Default value is .noWrap
      */
     @discardableResult
     public func fill() -> Flex {

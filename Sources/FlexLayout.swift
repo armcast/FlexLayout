@@ -120,7 +120,7 @@ public final class Flex {
         didSet {
             yoga.isIncludedInLayout = isIncludedInLayout
             view?.isHidden = !isIncludedInLayout
-            layout()
+            view?.superview?.flex.layout()
         }
     }
     
@@ -133,9 +133,9 @@ public final class Flex {
      */
     @discardableResult
     public func isIncludedInLayout(_ included: Bool) -> Flex {
-        self.isIncludedInLayout = included
+        yoga.isIncludedInLayout = included
         self.view?.isHidden = !included
-        self.layout()
+        self.view?.superview?.flex.layout()
         
         return self
     }

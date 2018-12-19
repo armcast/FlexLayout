@@ -873,6 +873,12 @@ public final class Flex {
         yoga.paddingTop = YGValue(value)
         return self
     }
+    
+    @discardableResult
+    public func paddingTop(_ percent: FPercent) -> Flex {
+        yoga.paddingTop = YGValue(value: Float(percent.value), unit: .percent)
+        return self
+    }
 
     /**
      Set the left padding. Left padding specify the **offset children should have** from the container's left edge.
@@ -880,6 +886,12 @@ public final class Flex {
     @discardableResult
     public func paddingLeft(_ value: CGFloat) -> Flex {
         yoga.paddingLeft = YGValue(value)
+        return self
+    }
+    
+    @discardableResult
+    public func paddingLeft(_ percent: FPercent) -> Flex {
+        yoga.paddingLeft = YGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -891,6 +903,12 @@ public final class Flex {
         yoga.paddingBottom = YGValue(value)
         return self
     }
+    
+    @discardableResult
+    public func paddingBottom(_ percent: FPercent) -> Flex {
+        yoga.paddingBottom = YGValue(value: Float(percent.value), unit: .percent)
+        return self
+    }
 
     /**
      Set the top padding. Top padding specify the **offset children should have** from the container's top edge.
@@ -898,6 +916,12 @@ public final class Flex {
     @discardableResult
     public func paddingRight(_ value: CGFloat) -> Flex {
         yoga.paddingRight = YGValue(value)
+        return self
+    }
+    
+    @discardableResult
+    public func paddingRight(_ percent: FPercent) -> Flex {
+        yoga.paddingRight = YGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 

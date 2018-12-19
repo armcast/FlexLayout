@@ -119,6 +119,8 @@ public final class Flex {
     public var isIncludedInLayout: Bool = true {
         didSet {
             yoga.isIncludedInLayout = isIncludedInLayout
+            view?.isHidden = !isIncludedInLayout
+            layout()
         }
     }
     
@@ -132,6 +134,9 @@ public final class Flex {
     @discardableResult
     public func isIncludedInLayout(_ included: Bool) -> Flex {
         self.isIncludedInLayout = included
+        self.view?.isHidden = !included
+        self.layout()
+        
         return self
     }
 
@@ -190,6 +195,30 @@ public final class Flex {
     @discardableResult
     public func wrap(_ value: Wrap) -> Flex {
         yoga.flexWrap = value.yogaValue
+        return self
+    }
+    
+    /**
+     The `fill` property sets height and width to 100%.
+     
+     - Parameter value: Default value is .noWrap
+     */
+    @discardableResult
+    public func fill() -> Flex {
+        yoga.height = YGValue(value: Float(100), unit: .percent)
+        yoga.width = YGValue(value: Float(100), unit: .percent)
+        return self
+    }
+    
+    @discardableResult
+    public func fillHeight() -> Flex {
+        yoga.height = YGValue(value: Float(100), unit: .percent)
+        return self
+    }
+    
+    @discardableResult
+    public func fillWidth() -> Flex {
+        yoga.width = YGValue(value: Float(100), unit: .percent)
         return self
     }
     
